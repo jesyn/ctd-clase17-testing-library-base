@@ -1,0 +1,28 @@
+import FollowingButtonComponent from './following-button.component';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+describe('button following should render', () => {
+  it('should call toogle funtion when button is clicked', () => {
+    const toogle = jest.fn();
+    render(<FollowingButtonComponent isFav onToggleFavorite={toogle} />);
+    const button = screen.getByRole('button');
+    userEvent.click(button);
+    expect(toogle).toBeCalled();
+  });
+  it('render when favorite is true', () => {
+    const toogle = jest.fn();
+    render(<FollowingButtonComponent isFav onToggleFavorite={toogle} />);
+    const image = screen.getByRole('img');
+    const isFavorite = '/images/star-filled.png';
+    expect(image).toHaveAttribute('src', isFavorite);
+  });
+  it('render when favorite is false', () => {
+    const toogle = jest.fn();
+    render(<FollowingButtonComponent isFav={false} onToggleFavorite={toogle} />);
+    const image = screen.getByRole('img');
+    const isNotFavorite = '/images/star.png';
+    //expect(image).toHaveAttribute('src', isNotFavorite);
+    expect(image).
+  });
+});

@@ -22,7 +22,8 @@
       "pages/*": ["./pages/*"],
       "store/*": ["./store/*"],
       "test/*": ["./test/*"]
-    }
+    },
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src/**/*", "jest.setupAfterEnv.ts"]
 }
